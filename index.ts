@@ -24,7 +24,7 @@ for (const file of files) {
 }
 
 Bun.serve({
-  port: 3000,
+  port: parseInt(process.env.PORT ?? "3000"),
   async fetch(request) {
     try {
       if (new URL(request.url).pathname === "/counter") {
