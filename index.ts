@@ -11,7 +11,9 @@ let ready = new Promise<void>((res) => {
   r = res;
 });
 setInterval(async () => {
-  cachedResult = await api.users.get({ id: uid });
+  try {
+    cachedResult = await api.users.get({ id: uid });
+  } catch {}
   r();
 }, 5000);
 
